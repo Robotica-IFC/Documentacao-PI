@@ -1,7 +1,7 @@
 # Robótica IFC
 
-Um modelo para o desenvolvimento do Projeto Integrador do Curso de Técnico em Desenvolvimento de Sistemas para a Internet Integrado ao Ensino Médio do IFC - Campus Araquari.
-*(Coloque aqui uma breve descrição do seu projeto.)*
+
+A Robótica IFC será uma aplicação desenvolvida pelos alunos do Instituto Federal Catarinense - Campus Araquari, que visa ensinar os estudantes do nível básico ao intermediário na área de robótica. Também pretende integrar a robótica ao cotidiano das escolas, permitindo que os usuários possam sugerir novos projetos, acompanhar o andamento dos projetos, fazer perguntas, assistir a vídeos, entre outros. Além disso, os alunos da robótica também poderão interagir com os usuários, aderindo ou não aos projetos sugeridos, e esses terão acesso ao inventário do Laboratório Maker. 
 
 
 Professor: [Marco André Mendes](github.com/marcoandre)

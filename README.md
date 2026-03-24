@@ -40,41 +40,59 @@ Além disso, nosso software também poderá ser utilizado por outras instituiç�
 
 # 2. Situação Problema
 
-*(Nessa parte a equipe deve descrever a situação problema que será resolvida pelo sistema. O texto abaixo descreve o que essa etapa deve conter e pode ser apagado depois.)*
+   A Robótica do Instituto Federal Catarinense – Campus Araquari é um grupo formado por alunos e orientado por um professor, com foco no desenvolvimento de projetos e no ensino de robótica. As atividades acontecem principalmente no Laboratório Maker, onde os estudantes aprendem na prática e trocam conhecimentos. Além disso, o grupo busca despertar o interesse de outros alunos pela área, incentivando a participação e o aprendizado.
 
-![Ciclo da Venda](docs/ciclo_da_venda.webp "Ciclo da Venda")
+   Atualmente, o funcionamento da Robótica IFC acontece de forma pouco organizada e bastante dependente de interações informais. A comunicação entre os integrantes e o professor ocorre por mensagens e conversas presenciais, o que faz com que muitas informações importantes acabem se perdendo ou ficando difíceis de acessar depois.
 
-Descrevem o que acontece atualmente na empresa em um contexto global,
-abordando o funcionamento da empresa como um todo, não apenas os “problemas” que lá ocorrem.
+   Os projetos desenvolvidos não possuem um local único de registro. Muitas ideias surgem durante reuniões, mas nem sempre são anotadas ou acompanhadas corretamente. Quando há algum registro, ele costuma ficar espalhado em arquivos diferentes, o que dificulta saber em que etapa cada projeto está ou até mesmo evitar ideias repetidas.
 
-Sabendo disso, seu papel é **detalhar o funcionamento da empresa escolhida na
-atualidade, ou seja, antes de seu novo software**, usando como base a situação que passamos, mas aprofundando os detalhes de como as coisas acontecem.
+   Para os alunos de fora do grupo, o acesso também é limitado. Quem tem interesse em aprender ou participar precisa procurar diretamente alguém da equipe, o que nem sempre é fácil. Dúvidas acabam sendo repetidas várias vezes, já que não existe um espaço organizado com informações e conteúdos disponíveis.
 
--   Pesquise sobre empresas do ramo escolhido
-    para entender como funcionam;
--   Aproveite seus conhecimentos previamente adquiridos na área da empresa que escolheu, se houver;
--   Simule uma situação real. Lembre-se que são propostas com empresas fictícias, sendo assim, você terá que tomar certas decisões sobre como a empresa funciona em relação às coisas que não estão definidas no documento base (por exemplo, no caso da padaria, dizemos que seu Genival contratou mais funcionários, mas saber quantos e o que fazem pode ser relevante para o software), então tente “visualizar” a empresa funcionando, como se você estivesse lá acompanhando o dia-a-dia;
+   Outro problema é o controle do laboratório. Os materiais e equipamentos não possuem um sistema eficiente de organização, o que pode causar dificuldades na hora de encontrar componentes ou até atrasos no desenvolvimento dos projetos.
 
-Seguindo essas dicas, você deve ser capaz de descrever o dia-a-dia da empresa selecionada. E para ajudar na organização do texto, indicamos uma abordagem em 3 etapas:
+   Além disso, os conteúdos de aprendizado, como vídeos e tutoriais, não estão centralizados. Isso faz com que alunos iniciantes dependam muito da ajuda de outros colegas, o que limita o aprendizado de forma mais independente.
 
--   **Introdução**: comece com um parágrafo apresentando a empresa (nome, o que faz, tempo de existência, o dono, funcionários, etc);
--   **Situação-problema**: Aborde em detalhes como a empresa funciona, procurando seguir uma ordem lógica dos acontecimentos e organizando parágrafos diferentes para cada coisa diferente que for explicar (como faria em uma redação);
--   **Conclusão**: tenha um parágrafo de conclusão focando nos problemas que você notou dentro da situação problema analisada e aponte brevemente como um software poderia ajudar a resolvê-los.
+
+   Diante disso, é possível perceber que a falta de organização e centralização dificulta tanto o desenvolvimento dos projetos quanto o acesso ao conhecimento. Um software poderia ajudar reunindo todas essas informações em um só lugar, facilitando a comunicação, o controle do laboratório e o aprendizado, além de permitir que mais pessoas participem e interajam com a robótica.
 
 # 3. Descrição da proposta
+# Proposta de Solução
 
-Após entender o problema, proponha uma solução que será útil nos aspectos de dificuldade encontrados. Assim, aqui você deverá **explicar de maneira resumida, e preferencialmente mais textual, como o software funcionará**. Pense nesse texto como uma **introdução ao seu cliente** do que você pretende fazer por ele, para que ele confirme se realmente está dentro do desejado e permita sua continuidade.
+A proposta é desenvolver um sistema web para centralizar e organizar todas as atividades da Robótica do IFC – Campus Araquari. O foco principal do software será facilitar o gerenciamento de projetos, a comunicação entre os participantes e o acesso ao conhecimento, resolvendo problemas de desorganização e dificuldade de acesso à informação.
 
-**Alguns pontos importantes a se destacar são:**
+## Tipos de Usuário
 
--   **Qual o foco de ação do software** relacionado com os problemas levantados na análise da situação-problema. O que realmente o software vai fazer. Por exemplo, o foco de ação do Gmail é permitir o envio e recebimento de e-mails.
--   **Os níveis de usuário do sistema**. Somente o gestor tem acesso? E os funcionários? Talvez seja para ambos, ou para funcionários de cargos
-    diferentes, etc.
--   **O que poderá ser feito no software**.Apenas o principal, sem pensar em telas ou detalhes específicos, pois isso será feito em outro momento.
--   **Se houver mais de um nível de usuário**, ressaltar as diferenças entre eles na descrição da proposta.
+O sistema contará com três níveis principais de usuários:
 
-Tenha em mente que essa é uma etapa relativamente breve. Não é necessário um texto gigantesco, apenas dar uma noção do funcionamento do sistema. Mais adiante
-precisaremos ser bem detalhistas, todavia agora a intenção é apenas fazer algo que permita ao cliente nos dizer se estamos no caminho certo.
+- **Visitantes**
+  - Acessar conteúdos educativos (vídeos, tutoriais e projetos)
+  - Sugerir novas ideias de projetos
+  - Fazer perguntas
+
+- **Alunos da Robótica**
+  - Cadastrar e gerenciar projetos
+  - Atualizar o andamento das atividades
+  - Interagir com sugestões de usuários
+  - Consultar o inventário do laboratório
+
+- **Professor/Responsável**
+  - Gerenciar todos os projetos
+  - Validar ou rejeitar sugestões
+  - Organizar conteúdos publicados
+  - Acompanhar o uso dos materiais
+
+## Funcionalidades Principais
+
+- Registro e acompanhamento de projetos do início à conclusão  
+- Espaço de perguntas e respostas para interação entre usuários  
+- Sistema de sugestões de projetos  
+- Controle e consulta do inventário do Laboratório Maker  
+- Centralização de conteúdos educativos  
+
+## Objetivo
+
+O sistema busca tornar a robótica mais organizada, acessível e eficiente, facilitando tanto o trabalho da equipe quanto o aprendizado de novos interessados. Além disso, permite ampliar o alcance do projeto para outros alunos e até mesmo outras instituições.
+
 
 # 4. Modelagem de Dados
 

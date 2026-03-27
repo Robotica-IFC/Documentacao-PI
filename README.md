@@ -100,6 +100,8 @@ O sistema busca tornar a robótica mais organizada, acessível e eficiente, faci
 
 Defina as entidades e relacionamentos que farão parte do sistema. Desenhe o diagrama de entidade-relacionamento (DER) e descreva as entidades e relacionamentos que farão parte do sistema.
 
+![Modelagem de dados](img/img-do-trabalho/imagem-banco-de-dados.png)
+
 
 
 # 4. Regras de negócio

@@ -67,7 +67,6 @@ O sistema contará com três níveis principais de usuários:
 - **Visitantes**
   - Acessar conteúdos educativos (vídeos, tutoriais e projetos)
   - Sugerir novas ideias de projetos
-  - Fazer perguntas
 
 - **Alunos da Robótica**
   - Cadastrar e gerenciar projetos
@@ -173,6 +172,46 @@ repassar ao cliente para aprovação, e caso o cliente aprovar, a atendente deve
 - **RN09 – Relatório de Fluxo de Caixa:** O relatório de fluxo de caixa será permitido somente para o administrador.
 
 # 5. Requisitos funcionais
+
+- RF001: O sistema deve manter professores.
+- RF002: O sistema deve manter alunos.
+- RF003: O sistema deve manter equipes.
+- RF004: O sistema deve manter projetos.
+- RF005: O sistema deve permitir gerenciar imagens de perfil.
+- RF006: O sistema deve permitir que alunos cadastrem projetos.
+- RF007: O sistema deve permitir que professores gerenciem projetos.
+- RF008: O sistema deve permitir criar e gerenciar posts.
+- RF009: O sistema deve permitir adicionar e gerenciar comentários.
+- RF010: O sistema deve permitir gerenciar respostas de comentários.
+- RF011: O sistema deve permitir gerenciar mídias associadas aos posts.
+- RF012: O sistema deve permitir gerenciar o estoque.
+- RF013: O sistema deve permitir gerenciar itens do estoque.
+- RF014: O sistema deve permitir gerenciar empréstimos.
+- RF015: O sistema deve permitir vincular itens a empréstimos.
+- RF016: O sistema deve permitir que os usuários alterem sua senha.
+- RF017: O sistema deve exibir o progresso durante o login e a recuperação de senha.
+- RF018: O sistema deve permitir o reenvio de código de verificação por e-mail.
+- RF019: O sistema deve permitir que professores cadastrem conteúdos educativos (vídeos e tutoriais).
+- RF020: O sistema deve permitir que usuários comentem nos posts.
+- RF021: O sistema deve permitir que alunos cadastrem projetos da equipe.
+- RF022: O sistema deve permitir que alunos atualizem o andamento dos projetos.
+- RF023: O sistema deve permitir que alunos consultem o estoque da robótica.
+- RF024: O sistema deve permitir que alunos realizem empréstimos de itens do estoque.
+- RF025: O sistema deve permitir que professores responsáveis cadastrem equipes.
+- RF026: O sistema deve permitir associar alunos a equipes.
+- RF027: O sistema deve permitir que alunos possam interagir com usuários através dos comentários dos posts.
+- RF028: O sistema deve permitir que professores aprovem ou rejeitem os projetos cadastrados pelos alunos.
+- RF029: O sistema deve permitir que professores organizem os projetos publicados.
+- RF030: O sistema deve permitir que professores acompanhem os empréstimos de materiais.
+- RF031: O sistema deve permitir que usuários sugiram ideias de projetos.
+- RF032: O sistema deve restringir funcionalidades de acordo com o tipo de usuário.
+- RF033: O sistema deve permitir visualizar o progresso dos projetos.
+- RF034: O sistema deve permitir que usuários visualizem conteúdos educativos.
+
+
+
+
+
 (*Nessa parte a equipe deve descrever os requisitos funcionais que serão implementados no sistema. O texto abaixo descreve o que essa etapa deve conter e pode ser apagado depois.*)
 
 **5.1 O que são requisitos funcionais?**

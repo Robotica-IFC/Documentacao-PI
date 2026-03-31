@@ -33,7 +33,7 @@ Links do projeto:
 
 **Robótica IFC**
 
-A Robótica do Instituto Federal Catarinense - Campus Araquari passa pela necessidade de um software que auxilie o docente responsável e os discentes participantes. Nossa equipe irá desenvolver um aplicativo que supra essas necessidades, além de proporcionar a possibilidade de aprendizado para as pessoas que tiverem curiosidade sobre o tema, dentro do nosso site
+A Robótica do Instituto Federal Catarinense - Campus Araquari passa pela necessidade de um software que auxilie o docente responsável e os discentes participantes. Nossa equipe irá desenvolver um aplicativo que supra essas necessidades, além de proporcionar a possibilidade de aprendizado para as pessoas que tiverem curiosidade sobre o tema, dentro do nosso site.
 
 
 Além disso, nosso software também poderá ser utilizado por outras instituições que enfrentem essa dificuldade.

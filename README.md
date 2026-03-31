@@ -56,7 +56,6 @@ Além disso, nosso software também poderá ser utilizado por outras instituiç�
    Diante disso, é possível perceber que a falta de organização e centralização dificulta tanto o desenvolvimento dos projetos quanto o acesso ao conhecimento. Um software poderia ajudar reunindo todas essas informações em um só lugar, facilitando a comunicação, o controle do laboratório e o aprendizado, além de permitir que mais pessoas participem e interajam com a robótica.
 
 # 3. Descrição da proposta
-# Proposta de Solução
 
 A proposta é desenvolver um sistema web para centralizar e organizar todas as atividades da Robótica do IFC – Campus Araquari. O foco principal do software será facilitar o gerenciamento de projetos, a comunicação entre os participantes e o acesso ao conhecimento, resolvendo problemas de desorganização e dificuldade de acesso à informação.
 

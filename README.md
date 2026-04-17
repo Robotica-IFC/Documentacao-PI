@@ -15,7 +15,7 @@ Links do projeto:
 (*Coloque aqui os links para a documentação do projeto e os repositórios e plubicação do backend e frontend.*)
 -   [Documentação (esse documento)](https://github.com/Robotica-IFC/Documentacao-PI)
 -   Backend: [Repositório](https://github.com/Robotica-IFC/Backend) e [Publicação](https://pi-backend.herokuapp.com/)
--   Frontend: [Repositório](https://github.com/Robotica-IFC/Frontend) e [Publicação](https://pi-frontend.herokuapp.com/)
+-   Frontend: [Repositório](https://github.com/Robotica-IFC/Frontend) e [Publicação](https://robotica-ifc.vercel.app/)
 
 **Como usar esse modelo para o Projeto Integrador**
 

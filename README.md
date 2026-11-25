@@ -1,5 +1,39 @@
 # Robótica IFC
 
+## Sumário
+
+- [Situação problema](#2-situação-problema)
+- [Descrição da proposta](#3-descrição-da-proposta)
+  - [Tipos de usuário](#tipos-de-usuário)
+  - [Funcionalidades principais](#funcionalidades-principais)
+  - [Objetivo](#objetivo)
+- [Modelagem de dados](#4-modelagem-de-dados)
+- [Regras de negócio](#4-regras-de-negócio)
+- [Requisitos funcionais](#5-requisitos-funcionais)
+- [Requisitos não funcionais](#6-requisitos-não-funcionais)
+- [Diagrama de caso de uso](#7-diagrama-de-caso-de-uso)
+- [Continuidade do projeto e funcionalidades pendentes](#8-continuidade-do-projeto-e-funcionalidades-pendentes)
+  - [8.1 Estado atual](#81-estado-atual)
+  - [8.2 Pendências confirmadas e pontos de validação](#82-pendências-confirmadas-e-pontos-de-validação)
+    - [Frontend — backlog e arquivos de referência](#frontend--backlog-e-arquivos-de-referência)
+    - [Backend — backlog e arquivos de referência](#backend--backlog-e-arquivos-de-referência)
+  - [8.3 Gerenciamento de competições de robótica](#83-novo-módulo-gerenciamento-de-competições-de-robótica-entre-equipes)
+    - [Requisitos funcionais propostos](#requisitos-funcionais-propostos)
+    - [Regras de negócio propostas](#regras-de-negócio-propostas)
+    - [Implementação no backend](#implementação-sugerida-no-backend)
+    - [Implementação no frontend](#implementação-sugerida-no-frontend)
+  - [8.4 Demais módulos a desenvolver](#84-demais-módulos-a-desenvolver)
+    - [Conteúdos educativos](#conteúdos-educativos)
+    - [Empréstimos de materiais](#empréstimos-de-materiais)
+  - [8.5 Como continuar o desenvolvimento local](#85-como-continuar-o-desenvolvimento-local)
+    - [Backend](#backend)
+    - [Frontend](#frontend)
+  - [8.6 Fluxo de trabalho e ordem recomendada](#86-fluxo-de-trabalho-e-ordem-recomendada)
+  - [8.7 Checklist de homologação e entrega](#87-checklist-de-homologação-e-entrega)
+  - [Referências para manutenção](#referências-para-manutenção)
+
+---
+
 user para teste: profcypher@gmail.com
 senha para teste: teste.123
 

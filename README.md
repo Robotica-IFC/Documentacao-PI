@@ -650,4 +650,173 @@ entendimento).
 ---
 
 
+# 8. Continuidade do projeto e funcionalidades pendentes
+
+**Levantamento de 25/11/2026 — branches `main` dos repositórios de frontend e backend.**
+
+Esta seção registra o ponto de partida para a próxima equipe de desenvolvimento. A existência de código não significa que uma funcionalidade esteja integralmente homologada. O levantamento foi feito por inspeção dos arquivos, rotas, dependências e issues; não houve execução dos servidores nem testes de produção nesta revisão.
+
+## 8.1 Estado atual
+
+- Frontend: Vue 3, Vite, Pinia, Vue Router, Axios, Material Design Icons e PWA. Existem telas de autenticação, perfil, início, equipes, projetos, estoque, notificações e páginas legais.
+- Backend: Django, Django REST Framework, JWT, PDM, armazenamento de mídias no Cloudinary, SQLite em desenvolvimento e PostgreSQL em produção. Existem modelos e rotas para usuários, alunos, professores, instituições, equipes, categorias, projetos, publicações, sugestões, convites, notificações, estoque e itens.
+- Equipes: já existe o conceito de OWNER (professor responsável), transferência de responsabilidade, convites e modelo de solicitação de entrada. Preservar essas regras ao ampliar o sistema.
+- Publicações: há estrutura para comentários, curtidas e formatos de mídia. Sugestões possuem ações de recusa, reativação e favoritos. Validar a integração antes de reimplementar.
+- Autenticação: existem cadastro, verificação de e-mail, recuperação de senha e testes de cadastro pendente.
+- Última migração identificada no backend: `core/migrations/0025_cadastro_pendente.py`. Conferir o histórico antes de criar novas migrações.
+
+## 8.2 Pendências confirmadas e pontos de validação
+
+| Área | Situação | Próxima entrega |
+| --- | --- | --- |
+| Competições de robótica | Não há módulo dedicado nas rotas/modelos e telas inspecionados | Implementar gerenciamento de competições entre equipes |
+| Conteúdo educativo (RF019/RF034) | `src/views/tutorialView.vue` exibe componente de desenvolvimento; não há API dedicada identificada | Cadastro, edição, publicação e consulta de vídeos e tutoriais |
+| Empréstimos (RF014/RF015/RF024/RF030) | Existem Estoque e Item, mas não há modelo/rota dedicada a empréstimos | Solicitação, aprovação, retirada, devolução e histórico |
+| Perguntas e respostas | A proposta prevê espaço próprio; existem comentários, mas não foi identificada API dedicada de perguntas | Validar com o orientador se comentários atendem ao requisito; caso contrário, criar módulo próprio |
+| Aprovação e progresso de projetos (RF028/RF033) | Projetos já existem; cobertura integral não verificada | Validar fluxo, responsáveis, estados e permissões antes de acrescentar o que faltar |
+| Layout, modo escuro, PWA e segurança | Há implementação parcial ou código existente; issues continuam abertas | Testar, corrigir regressões e fechar apenas tarefas homologadas |
+
+### Frontend — backlog e arquivos de referência
+
+- [#118 Modo noturno](https://github.com/Robotica-IFC/Frontend/issues/118), [#117 Estilização e layout](https://github.com/Robotica-IFC/Frontend/issues/117): revisar contraste de textos, ícones, inputs e modais, responsividade mobile/desktop e consistência com o Figma.
+- [#104 Sugestões e segurança](https://github.com/Robotica-IFC/Frontend/issues/104): validar envio, anonimato, anexos, filtros e acesso por perfil.
+- [#92 Organização do código](https://github.com/Robotica-IFC/Frontend/issues/92): dividir componentes extensos e manter chamadas HTTP centralizadas em `src/api/`; reutilizar componentes e stores existentes.
+- [#44 Página de usuário](https://github.com/Robotica-IFC/Frontend/issues/44), [#17 HomePage](https://github.com/Robotica-IFC/Frontend/issues/17), [#14 PWA](https://github.com/Robotica-IFC/Frontend/issues/14), [#11 Correção da FEAT 7](https://github.com/Robotica-IFC/Frontend/issues/11): conferir critérios originais e testar o que já está presente.
+- Pontos de entrada: `src/router/index.js`, `src/api/config.js`, `src/api/teamApi.js`, `src/api/projectsApi.js`, `src/api/storageApi.js`, `src/api/itemApi.js`, `src/api/notificationsApi.js`, `src/views/teamDetailsView.vue`, `src/views/storageView.vue` e `src/views/tutorialView.vue`.
+- Para novos módulos: criar serviços de API, stores quando houver estado compartilhado, telas e componentes reutilizáveis; registrar rotas e navegação; implementar carregamento, estados vazios, mensagens de erro, paginação e confirmação de ações destrutivas.
+
+### Backend — backlog e arquivos de referência
+
+- [#72 Filtros](https://github.com/Robotica-IFC/Backend/issues/72), [#52 DjangoFilters](https://github.com/Robotica-IFC/Backend/issues/52): verificar filtros, pesquisa, ordenação e paginação existentes.
+- [#62 Sugestões e segurança](https://github.com/Robotica-IFC/Backend/issues/62), [#35 Convites](https://github.com/Robotica-IFC/Backend/issues/35): validar permissões por objeto, duplicidade, transições de estado, notificações e acesso entre equipes.
+- [#16 Projetos](https://github.com/Robotica-IFC/Backend/issues/16), [#2 Professores](https://github.com/Robotica-IFC/Backend/issues/2): os modelos já existem; conferir requisitos originais antes de encerrar as issues.
+- Pontos de entrada: `app/urls.py`, `app/settings.py`, `core/models/`, `core/serializers/`, `core/views/`, `core/admin.py`, `core/migrations/` e `uploader/`.
+- Para cada novo recurso: definir modelos e restrições, serializers, viewsets, permissões e filtros; registrar exports e rotas, gerar migrações, registrar no admin e escrever testes de API. Atualizar o Swagger e a modelagem de dados.
+
+## 8.3 Novo módulo: gerenciamento de competições de robótica entre equipes
+
+**Status: pendente de implementação.** A proposta abaixo é uma especificação inicial para validação com o professor orientador; nomes, modalidades, formato de disputa e regras de pontuação ainda podem ser ajustados.
+
+### Requisitos funcionais propostos
+
+- RF035: permitir que organizadores autorizados criem, editem, publiquem e encerrem competições, informando nome, descrição, regulamento, local, datas e modalidades (por exemplo, sumô, seguidor de linha e desafios).
+- RF036: permitir a inscrição de equipes cadastradas por seus professores responsáveis, com aprovação ou recusa quando exigida.
+- RF037: permitir consultar competições, inscrições, participantes, calendário e etapas.
+- RF038: permitir organizar confrontos, baterias ou avaliações conforme a modalidade, registrar resultados e calcular a classificação.
+- RF039: permitir publicar resultados finais e consultar o histórico de participação das equipes.
+- RF040: notificar equipes sobre inscrições, alterações de horários, confrontos e resultados.
+
+### Regras de negócio propostas
+
+- Apenas organizadores autorizados podem administrar a competição e registrar/homologar resultados; professores responsáveis inscrevem suas próprias equipes; alunos e visitantes consultam informações conforme a visibilidade definida.
+- Não permitir inscrições duplicadas da mesma equipe na mesma modalidade, inscrições fora do prazo ou de equipes inelegíveis.
+- Uma competição pode ter estados rascunho, inscrições abertas, inscrições encerradas, em andamento, finalizada e cancelada. Definir as transições permitidas.
+- Somente inscrições aprovadas participam das etapas. Não permitir resultados de equipes que não fazem parte da disputa.
+- Pontuação, penalidades e desempates devem seguir o regulamento de cada modalidade. Nem toda competição exige confrontos eliminatórios: prever também provas por tempo ou pontos.
+- Preservar histórico de resultados, alterações e responsáveis; definir política de cancelamento e correção de resultados homologados.
+- Validar todas as permissões no servidor, não apenas ocultar botões na interface.
+
+### Implementação sugerida no backend
+
+1. Criar modelos `Competicao`, `ModalidadeCompeticao`, `InscricaoCompeticao`, `EtapaCompeticao` e `ResultadoCompeticao`; relacionar inscrições ao modelo existente `Equipe`. Caso necessário, criar `Confronto` para modalidades com disputas diretas.
+2. Definir campos de datas, status, regulamento, capacidade, pontuação e critérios de desempate; aplicar restrições de unicidade e integridade no banco.
+3. Criar serializers, viewsets, permissões por objeto e filtros. Registrar modelos no admin e rotas em `app/urls.py`.
+4. Rotas propostas (ainda inexistentes): `/api/competicoes/`, `/api/competicoes/{id}/modalidades/`, `/api/competicoes/{id}/inscricoes/`, `/api/competicoes/{id}/etapas/`, `/api/competicoes/{id}/resultados/` e `/api/competicoes/{id}/classificacao/`. Definir contratos e ações de aprovação/publicação no Swagger antes da integração.
+5. Reutilizar o sistema de notificações, criar migrações e testar inscrição duplicada, prazo encerrado, acesso indevido, resultados inválidos, desempates e encerramento.
+
+### Implementação sugerida no frontend
+
+1. Desenvolver protótipos no Figma seguindo o padrão visual atual, mobile first e modo escuro.
+2. Criar serviço `competitionsApi.js` usando a instância Axios de `src/api/config.js`, store Pinia se necessário, e adicionar rotas no Vue Router.
+3. Criar páginas de listagem e detalhes da competição, formulário de criação/edição, inscrição da equipe, painel do organizador, calendário, confrontos/etapas e classificação.
+4. Reutilizar cards, modais, paginação, notificações e componentes de confirmação. Exibir ações conforme perfil e status retornado pela API.
+5. Integrar com dados reais, testar navegação, erros e responsividade. A primeira entrega deve permitir criar uma competição, inscrever equipes, aprovar inscrições, lançar resultados e consultar classificação.
+
+## 8.4 Demais módulos a desenvolver
+
+### Conteúdos educativos
+
+No backend, criar modelo de conteúdo educativo com título, descrição, categoria, tipo, URL ou mídia, autor e status de publicação. Restringir criação/edição a professores autorizados e disponibilizar consulta a conteúdos publicados. No frontend, substituir o componente de desenvolvimento da tela `tutorialView.vue` por uma listagem pesquisável, página de detalhes e formulário de gerenciamento. Validar URLs e permissões de publicação.
+
+### Empréstimos de materiais
+
+No backend, aproveitar `Estoque` e `Item` para criar entidades de empréstimo e seus itens, solicitante, quantidade, prazo, responsável e status. Implementar aprovação, retirada e devolução com operações atômicas, evitando estoque negativo e devolução duplicada. Definir com o orientador quando a quantidade disponível deve ser reservada. No frontend, ampliar a tela de estoque com solicitação, acompanhamento, histórico e painel de aprovação. Testar empréstimos simultâneos e devoluções parciais se forem previstas.
+
+## 8.5 Como continuar o desenvolvimento local
+
+Solicitar acesso aos repositórios e às configurações de desenvolvimento aos responsáveis. Não utilizar credenciais de produção em testes nem publicar arquivos .env.
+
+### Backend
+
+Repositório: https://github.com/Robotica-IFC/Backend
+
+Pré-requisitos: Python compatível com `pyproject.toml` (>=3.10), Git, PDM e dependências de sistema necessárias ao projeto.
+
+```bash
+git clone https://github.com/Robotica-IFC/Backend.git
+cd Backend
+pdm install
+cp .env.exemplo .env
+# Configurar .env para desenvolvimento antes de executar os comandos abaixo.
+pdm run python manage.py migrate
+pdm run python manage.py check
+pdm run dev
+```
+
+O script dev atual utiliza `127.0.0.1:8000`. API: http://127.0.0.1:8000/api/ ; Swagger: http://127.0.0.1:8000/api/doc/ ; admin: http://127.0.0.1:8000/admin/ . Essas rotas refletem o código atual, que prevalece sobre endereços antigos no README do backend. Configurar banco, e-mail, Cloudinary e CORS conforme `.env.exemplo` e `app/settings.py`. Para testes locais, criar contas de teste próprias, inclusive com `pdm run createsuperuser` se necessário.
+
+### Frontend
+
+Repositório: https://github.com/Robotica-IFC/Frontend
+
+Pré-requisitos: Node.js 20.19.x ou >=22.12.0, conforme package.json, npm e Git.
+
+```bash
+git clone https://github.com/Robotica-IFC/Frontend.git
+cd Frontend
+npm install
+```
+
+Criar `.env.local` na raiz com:
+
+```dotenv
+VITE_URL_BACKEND=http://127.0.0.1:8000/api/
+```
+
+```bash
+npm run dev
+```
+
+Abrir a URL apresentada pelo Vite (normalmente http://localhost:5173). Testar login e requisições com o backend em execução; ajustar CORS para a origem local se necessário.
+
+## 8.6 Fluxo de trabalho e ordem recomendada
+
+1. Sincronizar os repositórios, comparar `main` e `DEV` (confirmar grafia e existência da branch) e identificar alterações ainda não integradas. Não recomeçar o projeto do zero.
+2. Revisar issues abertas e critérios de aceitação com o orientador; organizar tarefas no Kanban e separar issues de frontend e backend vinculadas ao mesmo recurso.
+3. Criar branches `FEAT-<numero-da-issue>` a partir da DEV atualizada; não desenvolver diretamente na main.
+4. Primeiro estabilizar cadastro, autenticação, equipes, convites, permissões, estoque e projetos. Depois priorizar o módulo de competições, seguido de empréstimos e conteúdos educativos; a ordem pode ser ajustada pelo orientador.
+5. Para cada módulo, validar requisitos e modelagem, implementar API e testes, documentar contrato no Swagger, integrar frontend e realizar homologação.
+6. Abrir PR para DEV, revisar e testar integração. Somente após aprovação, integrar DEV à main e verificar os deploys.
+7. Manter este README, diagramas, requisitos e issues atualizados. Não fechar uma tarefa apenas porque o arquivo correspondente existe.
+
+## 8.7 Checklist de homologação e entrega
+
+- [ ] Executar `pdm run python manage.py check`, `pdm run python manage.py makemigrations --check --dry-run`, `pdm run python manage.py showmigrations` e `pdm run test` em ambiente isolado.
+- [ ] Executar `npm run build` e os scripts de teste existentes em package.json (confirmações, dados pessoais, formulários, notificações, destaques e projetos).
+- [ ] Validar cadastro de aluno/professor, verificação de e-mail, recuperação de senha e exclusão de conta; testar casos de e-mail duplicado e cadastro interrompido.
+- [ ] Testar permissões de visitante, aluno, professor e OWNER, incluindo acesso indevido entre equipes e edição de publicações por ex-integrantes.
+- [ ] Testar notificações, convites, solicitações, sugestões, filtros, uploads e erros de rede.
+- [ ] Validar modo claro/escuro, celular/desktop, acessibilidade e instalação/atualização do PWA.
+- [ ] Revisar segurança: segredos e credenciais de teste não devem permanecer públicos; verificar backups/dumps e mídias versionadas, configurar CORS e DEBUG adequadamente, revisar permissões e proteção de dados pessoais. Rotacionar credenciais expostas quando aplicável.
+- [ ] Conferir migrações antes do deploy, realizar backup do banco e verificar logs, API, frontend e fluxos principais após publicação.
+- [ ] Atualizar diagramas de dados e casos de uso para refletir a implementação e os novos módulos.
+
+### Referências para manutenção
+
+- [Frontend — código atual](https://github.com/Robotica-IFC/Frontend/tree/main) e [issues](https://github.com/Robotica-IFC/Frontend/issues)
+- [Backend — código atual](https://github.com/Robotica-IFC/Backend/tree/main) e [issues](https://github.com/Robotica-IFC/Backend/issues)
+- [Frontend — package.json](https://github.com/Robotica-IFC/Frontend/blob/main/package.json)
+- [Backend — pyproject.toml](https://github.com/Robotica-IFC/Backend/blob/main/pyproject.toml)
+- [Backend — rotas da API](https://github.com/Robotica-IFC/Backend/blob/main/app/urls.py)
+- [Backend — README técnico](https://github.com/Robotica-IFC/Backend/blob/main/README.md)
 
